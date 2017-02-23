@@ -3,20 +3,43 @@
   box-sizing: border-box;
 }
 
+.main {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;  /* Fallback for browsers do NOT support vh unit */
+}
 
-/********** Colors *************/
-body {
-  background-color: black;
+.logo-container {
+  margin-top: 60px;
 }
 
 .play-area {
-  background: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.content {
+  min-height: 400px;
+  height: auto;
+}
+
+#startButton {
+  margin: 0 auto;
+}
+/********** Colors *************/
+body {
+  background: url("../images/game-of-thrones-background.jpg") no-repeat;
+  background-size: cover;
+}
+
+.main {
+
 }
 
 
 /********** Fonts *************/
 body {
   font-family: 'Open Sans', sans-serif;
+  color: white;
 }
 
 h1 {
