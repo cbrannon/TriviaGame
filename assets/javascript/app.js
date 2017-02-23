@@ -8,7 +8,7 @@ $(document).ready(function() {
                 options: ["The Lannisters", "The Lannisters",
                     "The Lannisters", "The Starks"
                 ],
-                answerImage: "#"
+                answerImage: "../images/tyrion.jpg"
             },
             lannisters: {
                 question: "Who wins?",
@@ -16,7 +16,7 @@ $(document).ready(function() {
                 options: ["The Starks", "The Starks",
                     "The Lannisters", "The Starks"
                 ],
-                answerImage: "#"
+                answerImage: "../images/tyrion.jpg"
             }
         },
 
@@ -24,6 +24,8 @@ $(document).ready(function() {
         incorrectAnswers: 0,
         unanswered: 0,
         currentQuestion: null,
+        answerCorrectness: null,
+        counter: null,
 
         setupGame: function() {
             this.setQuestion();
@@ -32,18 +34,20 @@ $(document).ready(function() {
         // Choose a random question from quetions object and set our variable.
         setQuestion: function() {
             var objKeys = Object.keys(this.questions);
+            this.answerCorrectness = null;
             this.currentQuestion = this.questions[objKeys[Math.floor(Math.random() * objKeys.length)]];
-            console.log(this.currentQuestion);
             this.setPlayArea();
-            this.timer();
+            this.startTimer();
         },
 
         restartGame: function() {
-            this.correctAnswers = 0;
-            this.incorrectAnswers = 0;
-            this.unanswered = 0;
-            this.currentQuestion = null;
-            for (var optionIndex = 1; optionIndex <= currentQuestion.options.length; optionIndex++) {
+            this.correctAnswers = 0,
+            this.incorrectAnswers = 0,
+            this.unanswered = 0,
+            this.currentQuestion = null,
+            this.answerCorrectness = null,
+            this.counter = null;
+            for (var optionIndex = 1; optionIndex <= this.currentQuestion.options.length; optionIndex++) {
                 $("#option-" + optionIndex).text("");
             }
         },
@@ -54,12 +58,16 @@ $(document).ready(function() {
             shuffle(questionArray);
             // Set answer options to DOM.
             for (var optionIndex = 0; optionIndex < questionArray.length; optionIndex++) {
-                $("#option-" + (optionIndex + 1)).text(questionArray[optionIndex]);
+                var optionNumbers = "option-" + (optionIndex + 1);
+                var newButton = $("<button></button>");
+                newButton.attr("type", "button");
+                newButton.addClass("btn btn-default btn-lg btn-block option");
+                newButton.attr("id", optionNumbers);
+                $("#buttons").append(newButton);
+                $("#" + optionNumbers).text(questionArray[optionIndex]);
             }
             // Set question to DOM.
             $("#question").text(this.currentQuestion.question);
-
-            $("#timeLeft").text("5");
 
             function shuffle(a) {
                 var j, x, i;
@@ -72,49 +80,60 @@ $(document).ready(function() {
             }
         },
 
-        getAnswer: function(condition) {
-            if (condition == "Out of Time") {
-                this.unanswered++;
-                // $("#timer").text(condition);
-                console.log("OOT");
-            } else if (condition == this.currentQuestion.correctAnswer) {
-                this.correctAnswers++;
-                // $("#timer").text("Correct!");
-                console.log("Correct answers updated to: " + this.correctAnswers);
+        getAnswer: function(answer) {
+          // console.log(this.answerCorrectness);
+            if (answer == "Out of Time") {
+              console.log(this.answerCorrectness);
+              this.unanswered++;
+            } else if (answer == this.currentQuestion.correctAnswer) {
+              this.answerCorrectness = "Correct!";
+              console.log(this.answerCorrectness);
+              this.correctAnswers++;
             } else {
-                this.incorrectAnswers++;
-                // $("#timer").text("Wrong!");
-                console.log("Incorrect answers updated to: " + this.incorrectAnswers);
+              this.answerCorrectness = "Wrong!";
+              console.log(this.answerCorrectness);
+              this.incorrectAnswers++;
             }
 
-            this.setQuestion();
+            // this.setQuestion();
+            this.stopTimer();
+            this.setAnswerPage();
         },
 
-        timer: function() {
-            var count = 5;
-            var counter = setInterval(start, 1000);
-            var self = this;
+        setAnswerPage: function() {
+          var self = this;
+          $("#question").text(this.answerCorrectness);
+          $("#buttons").empty();
+          setTimeout(function() { self.setQuestion() }, 5000);
+        },
 
-
-            function start() {
-                count = count - 1;
-                $("#timeLeft").text(count);
-                if (count <= 0) {
-                    clearInterval(counter);
-                    self.getAnswer("Out of Time");
-                    //counter ended, do something here
-                    return;
-                }
-                //Do code for showing the number of seconds here
+        startTimer: function() {
+          var self = this;
+          var count = 5;
+          $("#timeLeft").text(count);
+          this.counter = setInterval(function() {
+            count = count - 1;
+            $("#timeLeft").text(count);
+            if (count <= 0) {
+                self.answerCorrectness = "Out of Time";
+                self.getAnswer(self.answerCorrectness);
+                return;
             }
+          }, 1000);
+        },
+
+        stopTimer: function() {
+          clearInterval(this.counter);
         }
     }
 
     trivia.setupGame();
 
-    $(".option").on("click", function() {
+    // Delegated event for dynamically created DOM elements.
+    $("#buttons").on("click", ".option", function() {
         var answer = $(this).text();
         console.log(answer);
+        console.log(trivia.currentQuestion.correctAnswer)
         trivia.getAnswer(answer);
     });
 
