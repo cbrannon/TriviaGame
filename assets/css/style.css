@@ -1,0 +1,27 @@
+/********** Layout *************/
+* {
+  box-sizing: border-box;
+}
+
+
+/********** Colors *************/
+body {
+  background-color: black;
+}
+
+.play-area {
+  background: white;
+}
+
+
+/********** Fonts *************/
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+
+/********** Images *************/
