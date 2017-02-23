@@ -22,6 +22,10 @@
   height: auto;
 }
 
+.timer {
+  margin-bottom: 30px;
+}
+
 #startButton {
   margin: 0 auto;
 }
