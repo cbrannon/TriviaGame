@@ -15,7 +15,7 @@ $(document).ready(function() {
                 options: ["Targaryen", "Tully",
                     "Martell", "Lannisters"
                 ],
-                answerImage: "assets/images/tyrion.gif"
+                answerImage: "assets/images/dragons.gif"
             },
             {
                 question: "Whose house sigil is a stag?",
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 options: ["His father didn't want him.", "His mother didn't want him.",
                     "He committed treason.", "He sought glory."
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/sam.gif"
             },
             {
                 question: "Who is the Red Viper?",
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 options: ["Oberyn Martell", "Doran Martell",
                     "Nymeria Sand", "Lady Arryn"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/oberyn.gif"
             },
             {
                 question: "What is the name of Rickon's direwolf?",
@@ -79,7 +79,7 @@ $(document).ready(function() {
                 options: ["Shaggydog", "Wolf",
                     "Summer", "Grey Wind"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/shaggydog.gif"
             },
             {
                 question: "What does Khal Drogo call ships?",
@@ -87,7 +87,7 @@ $(document).ready(function() {
                 options: ["Leaky Tents", "Moving Cities",
                     "Wooden Horses", "Evil Magic"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/drogo.gif"
             },
             {
                 question: "What can definitely kill a White Walker?",
@@ -103,7 +103,7 @@ $(document).ready(function() {
                 options: ["Jon Snow", "Rob Stark",
                     "Bran Stark", "Ned Stark"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/rob.gif"
             },
             {
                 question: "How old was Theon Greyjoy when he was taken as a ward?",
@@ -111,7 +111,7 @@ $(document).ready(function() {
                 options: ["Seven", "Ten",
                     "Nine", "Eight"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/theon.gif"
             },
             {
                 question: "Who has Brienne sword her loyalty to?",
@@ -119,7 +119,7 @@ $(document).ready(function() {
                 options: ["Catelyn Stark", "House Stark",
                     "Stannis Baratheon", "House Baratheon"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/brienne.gif"
             },
             {
                 question: "What is the name of Ned Stark's sword?",
@@ -127,7 +127,7 @@ $(document).ready(function() {
                 options: ["Ice", "Winter",
                     "Wolf's Tooth", "Longclaw"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/ned.gif"
             },
             {
                 question: "Who gave Sandor Glegane the scars on his face?",
@@ -135,7 +135,7 @@ $(document).ready(function() {
                 options: ["Gregor Clegane", "Ilyn Payne",
                     "Joffrey Baratheon", "Robert Baratheon"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/hound.gif"
             },
             {
                 question: "Who is NOT on Arya Stark's list?",
@@ -143,7 +143,7 @@ $(document).ready(function() {
                 options: ["Varys", "Ilyn Payne",
                     "Joffrey Baratheon", "Cersei Lannister"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/arya.gif"
             },
             {
                 question: "What is the name of Joffrey Baratheon's Valyrian steel blade?",
@@ -151,7 +151,7 @@ $(document).ready(function() {
                 options: ["Widow's Wail", "Dark Sister",
                     "Lion's Tooth", "Hearteater"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/joffrey.gif"
             },
             {
                 question: "What is the name of Arya Stark's sword?",
@@ -159,7 +159,7 @@ $(document).ready(function() {
                 options: ["Needle", "Nymeria",
                     "Lion's Bane", "Icicle"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/needle.gif"
             },
             {
                 question: "What is Sansa Stark's favorite treat?",
@@ -167,7 +167,7 @@ $(document).ready(function() {
                 options: ["Lemon Cakes", "Tyroshi Pears",
                     "Lamprey Pie", "Berry Tarts"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/sansa.gif"
             },
             {
                 question: "Which is NOT part of Night's Watch vows?",
@@ -175,15 +175,15 @@ $(document).ready(function() {
                 options: ["Win No Glory", "Take No Wife",
                     "Kill No Innocent", "Father No Children"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/wall.gif"
             },
             {
-                question: "Which father legitimizes his bastard son?",
-                correctAnswer: "Roose Bolton",
-                options: ["Roose Bolton", "Ned Stark",
-                    "Robert Baratheon", "Oberyn Martell"
+                question: "What do Wildlings call men of the Black Watch?",
+                correctAnswer: "Crows",
+                options: ["Ravens", "Crows",
+                    "Smaugs", "Krulls"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/wildling.gif"
             },
             {
                 question: "Who is the Master of Whisperers",
@@ -191,7 +191,7 @@ $(document).ready(function() {
                 options: ["Varys", "Petyr Baelish",
                     "Tyrion Lannister", "Tywin Lannister"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/varys.gif"
             },
             {
                 question: "Who has Petyr Baelish loved since he was a child?",
@@ -199,7 +199,7 @@ $(document).ready(function() {
                 options: ["Catelyn Stark", "Sansa Stark",
                     "Lysa Arryn", "Cersei Lannister"
                 ],
-                answerImage: "assets/images/direwolf.gif"
+                answerImage: "assets/images/littlefinger.gif"
             },
         ],
 
