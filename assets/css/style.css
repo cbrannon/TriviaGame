@@ -15,28 +15,33 @@
 .play-area {
   border-radius: 10px;
   margin-top: 10px;
-}
-
-.play-content {
   min-height: 400px;
   height: auto;
+}
+
+#question {
+  margin-bottom: 20px;
 }
 
 #timer {
   margin-bottom: 30px;
 }
 
-#startButton {
+button {
+  max-width: 300px;
   margin: 0 auto;
 }
+
+#image-area {
+  max-height: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
 /********** Colors *************/
 body {
   background: url("../images/game-of-thrones-background.jpg") no-repeat;
   background-size: cover;
-}
-
-.main {
-
 }
 
 
