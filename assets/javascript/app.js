@@ -114,7 +114,7 @@ $(document).ready(function() {
                 answerImage: "assets/images/theon.gif"
             },
             {
-                question: "Who has Brienne sword her loyalty to?",
+                question: "Who has Brienne sworn her loyalty to?",
                 correctAnswer: "Catelyn Stark",
                 options: ["Catelyn Stark", "House Stark",
                     "Stannis Baratheon", "House Baratheon"
@@ -212,13 +212,7 @@ $(document).ready(function() {
         questionIndex: 0,
 
         startGame: function() {
-            this.correctAnswers = 0;
-            this.incorrectAnswers = 0;
-            this.unanswered = 0;
-            this.currentQuestion = null;
-            this.answerStatus = null;
-            this.counter = null;
-            this.questionIndex = 0;
+            this.resetVariables();
             this.shuffle(this.questions);
             this.setQuestion();
         },
@@ -278,6 +272,7 @@ $(document).ready(function() {
         },
 
         setImage: function() {
+            $("#image-area").addClass("active-image");
             $("#image-area").attr("src", this.currentQuestion.answerImage);
         },
 
@@ -286,7 +281,13 @@ $(document).ready(function() {
             $("#question").text(this.answerStatus);
             $("#buttons").empty();
             this.setImage();
+
+            if (this.answerStatus == "Wrong!") {
+                $("#answer").text("The correct answer is " + this.currentQuestion.correctAnswer);
+            }
             setTimeout(function() {
+                $("#answer").empty();
+                $("#image-area").removeClass("active-image");
                 $("#image-area").attr("src", "");
                 if (self.questionIndex == self.questions.length - 1) {
                     self.setResults();
@@ -300,7 +301,7 @@ $(document).ready(function() {
 
         startTimer: function() {
             var self = this;
-            var count = 10;
+            var count = 30;
             $("#timer").text("Time Remaining: " + count);
             this.counter = setInterval(function() {
                 count = count - 1;
@@ -329,6 +330,16 @@ $(document).ready(function() {
                 $("#results").empty();
                 self.startGame();
             }, 5000);
+        },
+
+        resetVariables: function() {
+            this.correctAnswers = 0;
+            this.incorrectAnswers = 0;
+            this.unanswered = 0;
+            this.currentQuestion = null;
+            this.answerStatus = null;
+            this.counter = null;
+            this.questionIndex = 0;
         }
     }
 
@@ -344,5 +355,4 @@ $(document).ready(function() {
         console.log(trivia.currentQuestion.correctAnswer)
         trivia.getAnswer(answer);
     });
-
 });
