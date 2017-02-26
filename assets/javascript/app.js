@@ -217,6 +217,7 @@ $(document).ready(function() {
             this.setQuestion();
         },
 
+        // Shuffle array
         shuffle: function(a) {
             var j, x, i;
             for (i = a.length; i; i--) {
@@ -235,6 +236,7 @@ $(document).ready(function() {
             this.startTimer();
         },
 
+        // Setup buttons for answer options and question.
         setPlayArea: function() {
             var questionArray = this.currentQuestion.options;
             // Shuffle answer options.
@@ -253,6 +255,7 @@ $(document).ready(function() {
             $("#question").text(this.currentQuestion.question);
         },
 
+        // Evaluate answer.
         getAnswer: function(answer) {
             if (answer == "Out of Time") {
                 console.log(this.answerStatus);
@@ -271,20 +274,25 @@ $(document).ready(function() {
             this.setAnswerPage();
         },
 
+        // Set gif area
         setImage: function() {
             $("#image-area").addClass("active-image");
             $("#image-area").attr("src", this.currentQuestion.answerImage);
         },
 
+        // Show answer page
         setAnswerPage: function() {
             var self = this;
             $("#question").text(this.answerStatus);
             $("#buttons").empty();
             this.setImage();
 
+            // If wrong guess, show correct answer
             if (this.answerStatus == "Wrong!") {
                 $("#answer").text("The correct answer is " + this.currentQuestion.correctAnswer);
             }
+
+            // After 5 seconds set new question or show results of game.
             setTimeout(function() {
                 $("#answer").empty();
                 $("#image-area").removeClass("active-image");
@@ -299,6 +307,7 @@ $(document).ready(function() {
             }, 5000);
         },
 
+        // Start game timer.
         startTimer: function() {
             var self = this;
             var count = 30;
@@ -314,10 +323,12 @@ $(document).ready(function() {
             }, 1000);
         },
 
+        // Stop game timer.
         stopTimer: function() {
             clearInterval(this.counter);
         },
 
+        // Show game results.
         setResults: function() {
             var self = this;
             $("#question").empty();
@@ -326,12 +337,14 @@ $(document).ready(function() {
             $("#results").append("<h1>Incorrect: " + this.incorrectAnswers + "</h1>");
             $("#results").append("<h1>Unanswered: " + this.unanswered + "</h1>");
 
+            // Start new game after 5 seconds.
             setTimeout(function() {
                 $("#results").empty();
                 self.startGame();
             }, 5000);
         },
 
+        // Reset all variables.
         resetVariables: function() {
             this.correctAnswers = 0;
             this.incorrectAnswers = 0;
