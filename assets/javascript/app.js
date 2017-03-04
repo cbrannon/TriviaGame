@@ -288,7 +288,7 @@ $(document).ready(function() {
             this.setImage();
 
             // If wrong guess, show correct answer
-            if (this.answerStatus == "Wrong!") {
+            if (this.answerStatus == "Wrong!" || this.answerStatus == "Out of Time") {
                 $("#answer").text("The correct answer is " + this.currentQuestion.correctAnswer);
             }
 
@@ -341,7 +341,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 $("#results").empty();
                 self.startGame();
-            }, 5000);
+            }, 10000);
         },
 
         // Reset all variables.
